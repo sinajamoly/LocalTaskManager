@@ -75,8 +75,10 @@ body{
     list-style: none;
     font-size: 30px;
     text-align: center;
-    margin: 5rem auto;
-
+    margin: 1rem auto;
+    background-color: darkgray;
+    border-radius: 50px;
+    width: 30%;
 }
 
 .review-item:hover{

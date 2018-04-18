@@ -1,10 +1,10 @@
 export default class TaskStorage{
     constructor(){
-        if(localStorage.getItem('task')){
-            this.tasks = JSON.parse(localStorage.getItem('task'));
+        if(localStorage.getItem('task1')){
+            this.tasks = JSON.parse(localStorage.getItem('task1'));
         }else{
             this.tasks=[];
-            localStorage.setItem('task', JSON.stringify(this.task));
+            localStorage.setItem('task1', JSON.stringify(this.task));
         }
     }
 
@@ -13,12 +13,9 @@ export default class TaskStorage{
     }
 
     deleteTaskById(id){
-        let afterDelete = this.tasks.map(task =>{
-            if(task.id === id){
-                return task
-            }
-        });
-
+        let afterDelete = this.tasks.filter(task=>{
+            return task.id != id;
+        })
         this.tasks = afterDelete;
     }
 
@@ -28,6 +25,6 @@ export default class TaskStorage{
 
     save(){
         let taskString = JSON.stringify(this.tasks);
-        localStorage.setItem('task', taskString);
+        localStorage.setItem('task1', taskString);
     }
 }
